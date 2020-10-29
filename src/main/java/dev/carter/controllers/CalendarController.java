@@ -58,7 +58,7 @@ public class CalendarController implements Initializable {
         rs = stmt.executeQuery(SQL);
         int i = 0;
         while(rs.next()){
-            events.add(i, new Event(rs.getInt("EVENT_ID"), rs.getDate("EVENT_DATE"), rs.getString("EVENT_DESCRIPTION")));
+            events.add(i, new Event(rs.getInt("EVENT_ID"), rs.getDate("EVENT_DATE"), rs.getString("EVENT_DESC")));
             calendarTbl.getItems().add(events.get(i));
             i++;
         }

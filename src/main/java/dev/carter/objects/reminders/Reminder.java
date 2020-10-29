@@ -1,4 +1,4 @@
-package objects;
+package dev.carter.objects.reminders;
 
 public class Reminder {
     private int reminderID;

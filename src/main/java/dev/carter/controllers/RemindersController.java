@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
-import objects.Reminder;
+import dev.carter.objects.reminders.Reminder;
 
 public class RemindersController implements Initializable {
 
