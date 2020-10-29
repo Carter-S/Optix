@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 public class App extends Application {
 
@@ -16,6 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("Login"));
+        stage.setTitle("Optix");
         stage.setScene(scene);
         stage.show();
     }
