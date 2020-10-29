@@ -13,7 +13,7 @@
          <children>
             <Pane prefHeight="100.0" prefWidth="280.0">
                <children>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="68.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/logo.png" />
                      </image>
@@ -21,7 +21,7 @@
                         <Glow level="1.0" />
                      </effect>
                   </ImageView>
-                  <Label layoutX="132.0" layoutY="20.0" prefHeight="60.0" prefWidth="120.0" styleClass="header" text="Optix" textFill="WHITE">
+                  <Label layoutX="132.0" layoutY="20.0" prefHeight="60.0" prefWidth="120.0" text="Optix" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI" size="30.0" />
                      </font>
