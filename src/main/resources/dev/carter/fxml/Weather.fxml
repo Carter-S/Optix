@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.carter.controllers.WeatherController">
+   <children>
+      <Pane layoutX="280.0" prefHeight="100.0" prefWidth="1000.0" styleClass="background" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="425.0" layoutY="20.0" prefHeight="60.0" prefWidth="150.0" styleClass="header" text="Weather" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Segoe UI" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="335.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-partly-cloudy-day-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="604.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-partly-cloudy-day-100.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <VBox layoutX="280.0" layoutY="100.0" prefHeight="620.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <HBox prefHeight="240.0" prefWidth="1000.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" text="Weather Conditions:" />
+                  <Label fx:id="conditions" alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" />
+               </children>
+            </HBox>
+            <HBox prefHeight="240.0" prefWidth="1000.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" text="Temperature:" />
+                  <Label fx:id="temperature" alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" />
+               </children>
+            </HBox>
+            <HBox prefHeight="240.0" prefWidth="1000.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" text="Wind Speed:" />
+                  <Label fx:id="windSpeed" alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" />
+               </children>
+            </HBox>
+            <HBox prefHeight="240.0" prefWidth="1000.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" text="Humidity:" />
+                  <Label fx:id="humidity" alignment="CENTER" prefHeight="240.0" prefWidth="500.0" styleClass="labels" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="1000.0">
+               <children>
+                  <TextField fx:id="locationInput" prefHeight="50.0" prefWidth="500.0" promptText="Enter a location here">
+                     <font>
+                        <Font name="Segoe UI" size="19.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#handleSubmit" prefHeight="35.0" prefWidth="500.0" text="Submit">
+                     <styleClass>
+                        <String fx:value="buttons" />
+                        <String fx:value="text" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
+         </children></VBox>
+      <VBox prefHeight="720.0" prefWidth="280.0" styleClass="navBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="68.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="132.0" layoutY="20.0" prefHeight="60.0" prefWidth="120.0" text="Optix" textFill="WHITE">
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                     <font>
+                        <Font name="Segoe UI" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Home" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="News" />
+            <Button id="selectedNav" mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Weather" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Reminders" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Calendar" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Exchange Rates" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

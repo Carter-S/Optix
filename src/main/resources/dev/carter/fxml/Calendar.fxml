@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.carter.controllers.CalendarController">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="280.0" styleClass="navBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="68.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="132.0" layoutY="20.0" prefHeight="60.0" prefWidth="120.0" text="Optix" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="30.0" />
+                     </font>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                  </Label>
+               </children></Pane>
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="280.0" styleClass="navBut" text="Home" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="280.0" styleClass="navBut" text="News" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="280.0" styleClass="navBut" text="Weather" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="280.0" styleClass="navBut" text="Reminders" />
+            <Button id="selectedNav" mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="280.0" styleClass="navBut" text="Calendar" />
+            <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Exchange Rates" />
+         </children>
+      </VBox>
+      <VBox layoutX="280.0" layoutY="100.0" prefHeight="620.0" prefWidth="1000.0" styleClass="articleBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <TableView fx:id="calendarTbl" prefHeight="500.0" prefWidth="1000.0" />
+            <HBox prefHeight="120.0" prefWidth="1000.0">
+               <children>
+                  <VBox prefHeight="120.0" prefWidth="820.0">
+                     <children>
+                        <HBox prefHeight="40.0" prefWidth="820.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="labels" text="Event Date:" />
+                              <TextField fx:id="eventDateInput" prefHeight="40.0" prefWidth="620.0" promptText="YYYY-MM-DD">
+                                 <font>
+                                    <Font name="Segoe UI" size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="80.0" prefWidth="820.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="80.0" prefWidth="200.0" styleClass="labels" text="Event description:" textFill="WHITE" wrapText="true" />
+                              <TextArea fx:id="eventDescInput" prefHeight="80.0" prefWidth="620.0" promptText="Enter event details" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="20.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="120.0" prefWidth="180.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleAddEvent" prefHeight="60.0" prefWidth="180.0" styleClass="buttons" text="Add Event" />
+                        <Button mnemonicParsing="false" onAction="#handleRemoveEvent" prefHeight="60.0" prefWidth="180.0" styleClass="buttons" text="Remove Event" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children></VBox>
+      <Pane layoutX="280.0" prefHeight="100.0" prefWidth="1000.0" styleClass="background">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="20.0" prefHeight="60.0" prefWidth="240.0" styleClass="header" text="Calendar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Segoe UI" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="313.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-gantt-chart-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="622.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-gantt-chart-100.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

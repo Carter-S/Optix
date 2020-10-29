@@ -1,0 +1,64 @@
+.background,.articleBox{
+    -fx-background-color: #344955;
+}
+
+.buttons, .navBut, .articleBox{
+    -fx-text-fill: white;
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 18pt;
+}
+
+.navBut, .navBar{
+    -fx-background-radius: 0;
+    -fx-background-color: #232F34;
+}
+
+.navBut{
+    -fx-pref-height: 75px;
+    -fx-pref-width: 300px;
+}
+
+.buttons, .navBut:hover{
+    -fx-background-color: #4A6572;
+    -fx-alignment: CENTER;
+}
+
+.buttons{
+    -fx-font-size: 16pt;
+}
+
+.buttons:hover{
+    -fx-background-color: #F9AA33;
+}
+
+.header{
+    -fx-text-fill: white;
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 30pt;
+}
+
+.title{
+    -fx-text-fill: white;
+    -fx-underline: true;
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 35px;
+    -fx-alignment: CENTER;
+}
+
+.description{
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-pref-width: 825px;
+}
+
+.readMore{
+    -fx-text-fill: white;
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 20px;
+}
+
+.labels{
+    -fx-text-fill: white;
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 16pt;
+}

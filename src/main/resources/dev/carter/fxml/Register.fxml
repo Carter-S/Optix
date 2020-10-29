@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.carter.controllers.RegisterController">
+   <children>
+      <Button layoutX="421.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="200.0" text="Login">
+         <styleClass>
+            <String fx:value="buttons" />
+            <String fx:value="text" />
+         </styleClass>
+      </Button>
+      <Button layoutX="661.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="200.0" text="Register">
+         <styleClass>
+            <String fx:value="buttons" />
+            <String fx:value="text" />
+         </styleClass>
+      </Button>
+      <Label fx:id="error" layoutX="421.0" layoutY="617.0" prefHeight="37.0" prefWidth="440.0" textFill="RED">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="success" layoutX="420.0" layoutY="580.0" prefHeight="37.0" prefWidth="440.0" textFill="#12ff00">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="420.0" layoutY="215.0" prefHeight="200.0" prefWidth="440.0" spacing="10.0">
+         <children>
+            <TextField fx:id="firstInput" prefHeight="50.0" prefWidth="440.0" promptText="Enter first name">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lastInput" prefHeight="50.0" prefWidth="440.0" promptText="Enter last name">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailInput" prefHeight="50.0" prefWidth="440.0" promptText="Enter email">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordInput" prefHeight="50.0" prefWidth="440.0" promptText="Enter password">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="confirmPasswordInput" prefHeight="50.0" prefWidth="440.0" promptText="Re-enter password">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
