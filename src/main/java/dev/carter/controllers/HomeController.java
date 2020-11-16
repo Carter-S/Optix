@@ -30,7 +30,12 @@ public class HomeController implements Initializable {
         if(page.contains(" ")){
             page = page.replaceAll(" ","");
         }
+        LoginController.pageHistory.push(page);
         App.setRoot(page);
     }
-    
+
+    @FXML
+    private void handleBackButton(ActionEvent actionEvent) throws IOException{
+        App.setRoot(LoginController.pageHistory.pop());
+    }
 }

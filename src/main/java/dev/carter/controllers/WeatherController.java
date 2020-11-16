@@ -67,7 +67,13 @@ public class WeatherController implements Initializable {
         if(page.contains(" ")){
             page = page.replaceAll(" ","");
         }
+        LoginController.pageHistory.push(page);
         App.setRoot(page);
 
+    }
+
+    @FXML
+    private void handleBackButton(ActionEvent actionEvent) throws IOException{
+        System.out.println(LoginController.pageHistory.pop());
     }
 }

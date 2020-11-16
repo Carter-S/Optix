@@ -1,5 +1,7 @@
 package dev.carter.application;
 
+import dev.carter.controllers.LoginController;
+import dev.carter.objects.stack.History;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import dev.carter.application.App;
+import dev.carter.objects.stack.History;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 public class LoginController implements Initializable {
     
     public static int userId;
+    public static History pageHistory = new History();
     public static String userFirstName;
     
     private Connection con;
@@ -68,5 +70,5 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
 }

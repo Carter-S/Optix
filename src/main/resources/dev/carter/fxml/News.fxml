@@ -63,6 +63,7 @@
             <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Reminders" />
             <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Calendar" />
             <Button mnemonicParsing="false" onAction="#handleNavButton" prefHeight="60.0" prefWidth="298.0" styleClass="navBut" text="Exchange Rates" />
+            <Button mnemonicParsing="false" onAction="#handleBackButton" prefHeight="75.0" prefWidth="300.0" styleClass="navBut" text="Back" />
          </children>
       </VBox>
    </children>

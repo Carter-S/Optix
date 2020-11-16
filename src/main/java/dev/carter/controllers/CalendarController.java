@@ -100,6 +100,7 @@ public class CalendarController implements Initializable {
         if(page.contains(" ")){
             page = page.replaceAll(" ","");
         }
+        LoginController.pageHistory.push(page);
         App.setRoot(page);
     }
 
@@ -123,5 +124,9 @@ public class CalendarController implements Initializable {
             eventDescInput.setText("No events selected!");
         }
     }
-    
+
+    @FXML
+    private void handleBackButton(ActionEvent actionEvent) throws IOException{
+        App.setRoot(LoginController.pageHistory.pop());
+    }
 }

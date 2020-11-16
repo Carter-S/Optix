@@ -139,4 +139,5 @@ public class RegisterController implements Initializable {
         }
         return pat.matcher(email).matches();
     }
+
 }
