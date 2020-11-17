@@ -85,6 +85,6 @@ public class ExchangeRatesController implements Initializable {
 
     @FXML
     private void handleBackButton(ActionEvent actionEvent) throws IOException{
-        System.out.println(LoginController.pageHistory.pop());
+        App.setRoot(LoginController.pageHistory.pop());
     }
 }

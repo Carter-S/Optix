@@ -22,8 +22,12 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static void setRoot(String fxml){
+        try {
+            scene.setRoot(loadFXML(fxml));
+        }catch (Exception e) {
+            System.out.println("Unable to execute command. No more previous pages");
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

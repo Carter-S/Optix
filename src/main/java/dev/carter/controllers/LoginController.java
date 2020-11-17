@@ -61,6 +61,7 @@ public class LoginController implements Initializable {
                 userId = rs.getInt("USER_ID");
                 userFirstName = rs.getString("USER_FIRSTNAME");
                 //if login details are valid switches scene to home screen
+                LoginController.pageHistory.push("Home");
                 App.setRoot("Home");
             }else{
                  error.setText("Error! Email and password don't match");

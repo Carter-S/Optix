@@ -106,14 +106,18 @@ public class RemindersController implements Initializable {
     
     //Switches scene to screen selected on navigation bar
     @FXML
-    private void handleNavButton(ActionEvent actionEvent) throws IOException{
-        Button btn = (Button) actionEvent.getSource();
-        String page = btn.getText();
-        if(page.contains(" ")){
-            page = page.replaceAll(" ","");
+    private void handleNavButton(ActionEvent actionEvent){
+        try {
+            Button btn = (Button) actionEvent.getSource();
+            String page = btn.getText();
+            if (page.contains(" ")) {
+                page = page.replaceAll(" ", "");
+            }
+            LoginController.pageHistory.push(page);
+            App.setRoot(page);
+        }catch (Exception e){
+            System.out.println("Can't execute that command");
         }
-        LoginController.pageHistory.push(page);
-        App.setRoot(page);
     }
 
     @FXML

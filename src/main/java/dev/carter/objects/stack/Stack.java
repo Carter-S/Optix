@@ -30,6 +30,7 @@ public abstract class Stack {
             return "Unable to execute pop, stack is empty";
         }
     }
+
     //Checks if stack is full
     public boolean isFull(){
         return lastPos == size-1;
