@@ -112,7 +112,8 @@ public class NewsController implements Initializable {
         if (page.contains(" ")) {
             page = page.replaceAll(" ", "");
         }
-        LoginController.pageHistory.push(page);
+        LoginController.pageHistory.push(LoginController.pageHistory.getCurrentPage());
+        LoginController.pageHistory.setCurrentPage(page);
         App.setRoot(page);
     }
 
