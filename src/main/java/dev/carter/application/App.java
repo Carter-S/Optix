@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("Login"));
         stage.setTitle("Optix");
+        stage.getIcons().add(new Image(App.class.getResourceAsStream("/dev/carter/images/logo.png")));
         stage.setScene(scene);
         stage.show();
     }
