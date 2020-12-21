@@ -64,10 +64,11 @@ public class LoginController implements Initializable {
                 LoginController.pageHistory.setCurrentPage("Home");
                 App.setRoot("Home");
             }else{
-                 error.setText("Error! Email and password don't match");
+                error.setText("");
+                error.setText("Error! Email and password don't match");
             }
         }catch(Exception e){
-             error.setText("Error! Invalid email!");
+             error.setText("Error! Invalid email or email hasn't been registered...");
             e.printStackTrace();
         }
     }

@@ -14,4 +14,5 @@ module dev.carter {
     exports dev.carter.application;
     exports dev.carter.controllers;
     exports dev.carter.objects.gson;
+    exports dev.carter.objects.stack;
 }

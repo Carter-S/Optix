@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import dev.carter.application.App;
@@ -26,9 +27,20 @@ public class CalendarController implements Initializable {
     private TextField eventDateInput;
     @FXML
     private TextArea eventDescInput;
-    
+    @FXML
+    private ComboBox<String> selectMonth;
+    @FXML
+    private ComboBox<Integer> yearSelect;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        for(int i =1; i<=12; i++){
+            if(i<10){
+                selectMonth.getItems().add("0"+String.valueOf(i));
+            }else{
+                selectMonth.getItems().add(String.valueOf(i));
+            }
+        }
         try {
             //Establishing connection with database
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/optix_db", "viewer", "optix");
@@ -43,18 +55,47 @@ public class CalendarController implements Initializable {
             eventDescription.setCellValueFactory(new PropertyValueFactory<>("eventDesc"));
             eventDate.prefWidthProperty().bind(calendarTbl.widthProperty().multiply(0.3));
             eventDescription.prefWidthProperty().bind(calendarTbl.widthProperty().multiply(0.7));
-            
+            updateYears();
             updateCalendar();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    private void updateCalendar() throws SQLException{
+
+    private void updateYears(){
+                try {
+                    yearSelect.getItems().clear();
+                    ArrayList<Integer> years = new ArrayList<>();
+                    String SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID=" + LoginController.userId + ") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
+                    rs = stmt.executeQuery(SQL);
+                    while(rs.next()){
+                        Date date = rs.getDate("EVENT_DATE");
+                        int year = Integer.valueOf(String.valueOf(date).substring(0, 4));
+                        years.add(year);
+                    }
+                    for(int year : years){
+                        yearSelect.getItems().add(year);
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+    }
+
+    @FXML
+    private void updateCalendar() throws SQLException {
         //Displays all calendar events belonging to the current user
         ArrayList<Event> events = new ArrayList<>();
+        String SQL;
+        if (yearSelect.getSelectionModel().isEmpty() && selectMonth.getSelectionModel().isEmpty()) {
+            SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID=" + LoginController.userId + ") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
+        }else if(yearSelect.getSelectionModel().isEmpty() && !selectMonth.getSelectionModel().isEmpty()){
+            SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_DATE LIKE '____-"+selectMonth.getSelectionModel().getSelectedItem()+"-__') AND (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID=" + LoginController.userId + ") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
+        }else if(!yearSelect.getSelectionModel().isEmpty() && !selectMonth.getSelectionModel().isEmpty()) {
+            SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_DATE LIKE '"+yearSelect.getSelectionModel().getSelectedItem()+"-"+selectMonth.getSelectionModel().getSelectedItem()+"-__') AND (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID=" + LoginController.userId + ") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
+        }else{
+            SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_DATE LIKE '"+yearSelect.getSelectionModel().getSelectedItem()+"-__-__') AND (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID=" + LoginController.userId + ") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
+        }
         calendarTbl.getItems().clear();
-        String SQL = "SELECT * FROM TBL_CALENDAR, TBL_USERTOEVENT WHERE (TBL_CALENDAR.EVENT_ID=TBL_USERTOEVENT.EVENT_ID) AND (TBL_USERTOEVENT.USER_ID="+LoginController.userId+") ORDER BY TBL_CALENDAR.EVENT_DATE ASC";
         rs = stmt.executeQuery(SQL);
         int i = 0;
         while(rs.next()){
@@ -70,7 +111,7 @@ public class CalendarController implements Initializable {
         rs = stmt.executeQuery(SQL);
         rs.next();
         int id = rs.getInt("maxID")+1;
-        SQL = "INSERT INTO TBL_CALENDAR VALUES(?,?,?)";
+        SQL = "INSERT INTO TBL_CALENDAR VALUES(?, ?, ?)";
         PreparedStatement pStmt = con.prepareStatement(SQL);
         pStmt.setInt(1, id);
         pStmt.setDate(2, eventDate);
@@ -80,8 +121,9 @@ public class CalendarController implements Initializable {
         SQL = "INSERT INTO TBL_USERTOEVENT VALUES("+LoginController.userId+","+id+")";
         stmt.executeUpdate(SQL);
         updateCalendar();
+        updateYears();
     }
-    
+
     private void removeEvent() throws SQLException{
         //Removes selected calendar event from database and arraylist
         Event temp = calendarTbl.getSelectionModel().getSelectedItem();
@@ -91,7 +133,7 @@ public class CalendarController implements Initializable {
         stmt.executeUpdate(SQL);
         updateCalendar();
     }
-    
+
     //Switches scene to screen selected on navigation bar
     @FXML
     private void handleNavButton(ActionEvent actionEvent) throws IOException{

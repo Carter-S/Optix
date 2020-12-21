@@ -62,20 +62,24 @@ public class RemindersController implements Initializable {
     }
     
     private void addReminder(String reminder) throws SQLException{
-        //Adds reminder to the database and arraylist
-        String SQL = "SELECT MAX(REMINDER_ID) AS maxID FROM TBL_REMINDERS";
-        rs = stmt.executeQuery(SQL);
-        rs.next();
-        int id = rs.getInt("maxID")+1;
-        SQL = "INSERT INTO TBL_REMINDERS VALUES(?,?)";
-        PreparedStatement pStmt = con.prepareStatement(SQL);
-        pStmt.setInt(1, id);
-        pStmt.setString(2, reminder);
-        pStmt.executeUpdate();
-        pStmt.close();
-        SQL = "INSERT INTO TBL_USERTOREMINDER VALUES("+LoginController.userId+","+id+")";
-        stmt.executeUpdate(SQL);
-        updateReminders();
+        if(reminder != "") {
+            //Adds reminder to the database and arraylist
+            String SQL = "SELECT MAX(REMINDER_ID) AS maxID FROM TBL_REMINDERS";
+            rs = stmt.executeQuery(SQL);
+            rs.next();
+            int id = rs.getInt("maxID") + 1;
+            SQL = "INSERT INTO TBL_REMINDERS VALUES (? , ?)";
+            PreparedStatement pStmt = con.prepareStatement(SQL);
+            pStmt.setInt(1, id);
+            pStmt.setString(2, reminder);
+            pStmt.executeUpdate();
+            pStmt.close();
+            SQL = "INSERT INTO TBL_USERTOREMINDER VALUES(" + LoginController.userId + "," + id + ")";
+            stmt.executeUpdate(SQL);
+            updateReminders();
+        }else{
+            reminderInput.setText("No reminder Entered");
+        }
     }
     
     private void removeReminder() throws SQLException{
