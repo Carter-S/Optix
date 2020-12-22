@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.carter.controllers.LoginController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.carter.controllers.LoginController">
    <children>
       <Button layoutX="420.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="50.0" prefWidth="200.0" text="Register">
          <styleClass>
@@ -21,7 +19,7 @@
             <String fx:value="text" />
          </styleClass>
       </Button>
-      <Label fx:id="error" layoutX="420.0" layoutY="484.0" prefHeight="37.0" prefWidth="440.0" textFill="RED">
+      <Label fx:id="error" layoutX="421.0" layoutY="484.0" prefHeight="37.0" prefWidth="508.0" textFill="RED">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>

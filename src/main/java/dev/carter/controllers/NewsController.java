@@ -40,7 +40,7 @@ public class NewsController implements Initializable {
     private void printArticles() {
         newsBox.getChildren().clear();
         for (int i = 0; i < 4; i++) {
-            if(position < articles.size()){
+            if(position < 10){
             newsBox.getChildren().addAll(createArticleBox(position));
             position++;
             }
@@ -80,10 +80,8 @@ public class NewsController implements Initializable {
     @FXML
     private void handlePrevious(ActionEvent actionEvent) {
         if(position <= 4){
-            position = articles.size();
-            while(position % 4 != 0){
-                position--;
-            }
+            position = 10;
+            position -=2;
         }else if(position % 4 != 0){
             while(position % 4 != 0){
                 position--;
@@ -98,7 +96,7 @@ public class NewsController implements Initializable {
     //Prints next four articles
     @FXML
     private void handleNext(ActionEvent actionEvent){
-        if (position >= articles.size()) {
+        if (position >= 10) {
             position = 0;
         }
         printArticles();

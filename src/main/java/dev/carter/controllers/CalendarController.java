@@ -163,6 +163,7 @@ public class CalendarController implements Initializable {
     private void handleRemoveEvent(ActionEvent actionEvent) throws SQLException {
         if(!calendarTbl.getSelectionModel().isEmpty()){
             removeEvent();
+            updateYears();
         }else{
             eventDescInput.setText("No events selected!");
         }
