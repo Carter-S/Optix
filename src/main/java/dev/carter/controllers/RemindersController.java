@@ -68,14 +68,17 @@ public class RemindersController implements Initializable {
             rs = stmt.executeQuery(SQL);
             rs.next();
             int id = rs.getInt("maxID") + 1;
-            SQL = "INSERT INTO TBL_REMINDERS VALUES (? , ?)";
+            SQL = "INSERT INTO TBL_REMINDERS VALUES (?, ?)";
             PreparedStatement pStmt = con.prepareStatement(SQL);
             pStmt.setInt(1, id);
             pStmt.setString(2, reminder);
             pStmt.executeUpdate();
+            SQL = "INSERT INTO TBL_USERTOREMINDER VALUES(?, ?)";
+            pStmt = con.prepareStatement(SQL);
+            pStmt.setInt(1, LoginController.userId);
+            pStmt.setInt(2, id);
+            pStmt.executeUpdate();
             pStmt.close();
-            SQL = "INSERT INTO TBL_USERTOREMINDER VALUES(" + LoginController.userId + "," + id + ")";
-            stmt.executeUpdate(SQL);
             updateReminders();
         }else{
             reminderInput.setText("No reminder Entered");
