@@ -52,12 +52,12 @@ public class LoginController implements Initializable {
     private void handleLogin(ActionEvent actionEvent){
         try{
             //gets user information from TBL_USERS where email entered matches
-            String SQL = "SELECT * FROM TBL_USERS WHERE USER_EMAIL='"+emailInput.getText()+"'";
+            String SQL = "SELECT * FROM tbl_users WHERE user_email='"+emailInput.getText()+"'";
             rs = stmt.executeQuery(SQL);
             rs.next();
             
             //checks if password entered is the password belonging to the account
-            if(rs.getString("USER_PASSWORD").equals(passwordInput.getText())){
+            if(rs.getString("user_password").equals(passwordInput.getText())){
                 userId = rs.getInt("USER_ID");
                 userFirstName = rs.getString("USER_FIRSTNAME");
                 //if login details are valid switches scene to home screen

@@ -60,18 +60,23 @@ public class RegisterController implements Initializable {
         if (!(firstInput.getText().isEmpty() || lastInput.getText().isEmpty())) {
             //Checks if the entered email is valid and hasn't been used already
             if (isValid(emailInput.getText()) && !userExists(emailInput.getText())) {
-                //Checks if both password inputs are identical
-                if (passwordInput.getText().equals(confirmPasswordInput.getText())) {
-                    //Checks if user was successfully added to TBL_USERS in the database
-                    if (addUser(firstInput.getText(), lastInput.getText(), emailInput.getText(), passwordInput.getText())) {
-                        success.setText("Successfully registered!");
+                //Checks if the password is minimum length
+                if(passwordInput.getText().length() >= 5) {
+                    //Checks if both password inputs are identical
+                    if (passwordInput.getText().equals(confirmPasswordInput.getText())) {
+                        //Checks if user was successfully added to TBL_USERS in the database
+                        if (addUser(firstInput.getText(), lastInput.getText(), emailInput.getText(), passwordInput.getText())) {
+                            success.setText("Successfully registered!");
+                        } else {
+                            error.setText("Error! Registration failed");
+                        }
                     } else {
-                        error.setText("Error! Registration failed");
+                        error.setText("Passwords don't match");
+                        passwordInput.clear();
+                        confirmPasswordInput.clear();
                     }
-                } else {
-                    error.setText("Passwords don't match");
-                    passwordInput.clear();
-                    confirmPasswordInput.clear();
+                }else{
+                    error.setText("Password is less than 5 characters");
                 }
             } else {
                 error.setText("Email invalid or already taken");
