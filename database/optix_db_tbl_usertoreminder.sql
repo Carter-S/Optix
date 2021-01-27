@@ -16,26 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_usertoevent`
+-- Table structure for table `tbl_usertoreminder`
 --
 
-DROP TABLE IF EXISTS `tbl_usertoevent`;
+DROP TABLE IF EXISTS `tbl_usertoreminder`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_usertoevent` (
+CREATE TABLE `tbl_usertoreminder` (
   `user_id` int NOT NULL,
-  `event_id` int NOT NULL,
-  PRIMARY KEY (`user_id`,`event_id`)
+  `reminder_id` int NOT NULL,
+  PRIMARY KEY (`user_id`,`reminder_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_usertoevent`
+-- Dumping data for table `tbl_usertoreminder`
 --
 
-LOCK TABLES `tbl_usertoevent` WRITE;
-/*!40000 ALTER TABLE `tbl_usertoevent` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_usertoevent` ENABLE KEYS */;
+LOCK TABLES `tbl_usertoreminder` WRITE;
+/*!40000 ALTER TABLE `tbl_usertoreminder` DISABLE KEYS */;
+INSERT INTO `tbl_usertoreminder` VALUES (1,1),(1,3);
+/*!40000 ALTER TABLE `tbl_usertoreminder` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-12 19:58:37
+-- Dump completed on 2021-01-27  9:52:37

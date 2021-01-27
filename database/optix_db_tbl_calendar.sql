@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_users`
+-- Table structure for table `tbl_calendar`
 --
 
-DROP TABLE IF EXISTS `tbl_users`;
+DROP TABLE IF EXISTS `tbl_calendar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(100) NOT NULL,
-  `user_firstname` varchar(50) NOT NULL,
-  `user_lastname` varchar(50) NOT NULL,
-  `user_password` varchar(50) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tbl_calendar` (
+  `event_id` int NOT NULL AUTO_INCREMENT,
+  `event_date` date NOT NULL,
+  `event_desc` varchar(1000) NOT NULL,
+  PRIMARY KEY (`event_id`),
+  UNIQUE KEY `event_id_UNIQUE` (`event_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_users`
+-- Dumping data for table `tbl_calendar`
 --
 
-LOCK TABLES `tbl_users` WRITE;
-/*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
-INSERT INTO `tbl_users` VALUES (1,'cs190033@reigate.ac.uk','Carter','Springall','admin'),(2,'paul@gmail.com','Paul','Springall','user');
-/*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
+LOCK TABLES `tbl_calendar` WRITE;
+/*!40000 ALTER TABLE `tbl_calendar` DISABLE KEYS */;
+INSERT INTO `tbl_calendar` VALUES (1,'2019-04-05','s'),(2,'2020-05-09',';sakdfj');
+/*!40000 ALTER TABLE `tbl_calendar` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-12 19:58:38
+-- Dump completed on 2021-01-27  9:52:36
